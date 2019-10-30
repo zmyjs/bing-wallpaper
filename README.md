@@ -1,20 +1,27 @@
-# bing-wallpaper
+# Bing每日壁纸
 
-Bing每日壁纸
+以支持跨域范围的方式使用Bing每日壁纸API。
 
-## API
+## URL
 
 https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper
 
+
+## 方法
+
+GET
+
+
 ## 参数
 
-### n
+### n 图片数量
 
-图片数量，默认为1，最大为8。
+最小为0，最大为8，默认为1。
 
-### idx
+### idx 索引
 
-索引，0为当天，大于0为过去，小于0为未来，默认为0。
+0为当天，大于0为过去，最大为16，默认为0。
+
 
 ## 响应
 
@@ -22,11 +29,17 @@ https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper
 
 ### images
 
-图片列表，其中`url`为图片地址。
+图片列表
 
-### tooltips
+- url 图片绝对地址（原版接口为相对地址）
+- title 图片标题
 
-其他提示
+其他自行探索。
+
+### tooltips 工具提示
+
+自行探索。
+
 
 ## 响应示例
 
