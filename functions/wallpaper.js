@@ -32,13 +32,12 @@ exports.handler = function (event, context, callback) {
         res.on('data', function (data) {
             const json = data.toString();
             const result = JSON.parse(json);
-            result.res = res;
             result.event = event;
             success(result);
         });
     }).on('error', callback);
 
-    function success(data, debug) {
+    function success(data) {
         data.images.forEach(function (img) {
             const reg = /^\/\w+/;
             for (const key in img) {
