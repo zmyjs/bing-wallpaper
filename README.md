@@ -6,11 +6,9 @@
 
 https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper
 
-
 ## 方法
 
 GET
-
 
 ## 参数
 
@@ -29,14 +27,11 @@ GET
 可选：`js`、`xml`。
 默认`js`。
 
-
 ## 响应
 
 最外层为对象，有以下属性：
 
-### images
-
-图片列表
+### images 图片列表
 
 - url 图片绝对地址（原版接口为相对地址）
 - title 图片标题
@@ -46,7 +41,6 @@ GET
 ### tooltips 工具提示
 
 自行探索。
-
 
 ## 响应示例
 
@@ -80,3 +74,7 @@ GET
     }
 }
 ```
+
+## 已知问题
+
+目前返回的信息都是英文的。
