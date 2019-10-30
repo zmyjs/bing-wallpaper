@@ -28,7 +28,11 @@ exports.handler = function (event, context, callback) {
     };
     Object.assign(search, event.queryStringParameters);
 
-    https.get(api.getURL(search), function (res) {
+    https.get(api.getURL(search), {
+        headers: {
+            'Accept-Language': event.headers['Accept-Language']
+        }
+    }, function (res) {
         if (res.statusCode === 200) {
             res.on('data', function (data) {
                 const json = data.toString(),
