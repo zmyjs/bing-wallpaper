@@ -4,19 +4,19 @@
   "description": "Bing每日壁纸",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "netlify init"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kobezhu/bing-wallpaper.git"
   },
-  "author": "",
+  "author": "ZMY",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kobezhu/bing-wallpaper/issues"
   },
   "homepage": "https://github.com/kobezhu/bing-wallpaper#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "netlify-cli": "^2.20.1"
   }
 }
