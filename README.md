@@ -6,6 +6,30 @@ Bing每日壁纸
 
 https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper
 
+## 参数
+
+### n
+
+图片数量，默认为1，最大为8。
+
+### idx
+
+索引，0为当天，大于0为过去，小于0为未来，默认为0。
+
+## 响应
+
+返回一个JSON对象。
+
+### images
+
+图片列表，其中`url`为图片地址。
+
+### tooltips
+
+其他提示
+
+## 响应示例
+
 ```json
 {
     "images": [
@@ -16,13 +40,8 @@ https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper
             "url": "https://cn.bing.com/th?id=OHR.CharlesNight_EN-US6584049116_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp",
             "urlbase": "https://cn.bing.com/th?id=OHR.CharlesNight_EN-US6584049116",
             "copyright": "Charles Bridge over the Vltava River in Prague, Czech Republic (© Martin Moxter/Offset)",
-            "copyrightlink": "/search?q=charles+bridge+prague&form=hpcapt&filters=HpDate%3a%2220191030_0700%22",
+            "copyrightlink": "https://www.bing.com/search?q=charles+bridge+prague&form=hpcapt&filters=HpDate%3a%2220191030_0700%22",
             "title": "Cross this bridge if you dare",
-            "caption": "Cross this bridge if you dare",
-            "copyrightonly": "© Martin Moxter/Offset",
-            "desc": "Superstition abounds on Prague's Charles Bridge, dating back to its construction in 1357. Builders laid the original bridge stone on July 9 at exactly 5:31 AM, the year, date, and time represented by a precise set of numbers that formed a palindrome: 135797531 (or 1357 9, 7 5:31). The sequence, which reads the same backward and forward, is carved onto the stones of the Old Town Bridge Tower at the east end of the bridge and was believed to bring a kind of magical strength to the structure. But the superstition didn't stop there. The bridge was also constructed in perfect alignment with the tomb of Saint Vitus and the setting sun on the equinox. A more recent superstition involves the statue of the revered Saint John of Nepomuk that stands on the bridge—according to folklore, rubbing the plaque at the base of the statue will grant you a wish.",
-            "date": "Oct 30, 2019",
-            "bsTitle": "Cross this bridge if you dare",
             "quiz": "https://cn.bing.com/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20191030_CharlesNight%22&FORM=HPQUIZ",
             "wp": true,
             "hsh": "cd98891997358fbe31a8ffcd33a8fdae",

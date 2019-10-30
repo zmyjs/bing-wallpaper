@@ -16,7 +16,14 @@ function absolute(img) {
 }
 
 exports.handler = function (event, context, callback) {
-    const search = { n: 1, idx: 0 };
+    /**
+     * n 数量，必填
+     * idx 索引；默认0
+     * format 响应格式：js、xml；默认xml。
+     * pid 可能跟大小有关；默认hp
+     * nc 可能是时间戳
+     */
+    const search = { n: 1 };
     Object.assign(search, event.queryStringParameters);
 
     let url = `${api.origin}${api.pathname}?`;
