@@ -19,14 +19,16 @@
         <p>
             <a href="https://github.com/kobezhu/bing-wallpaper/blob/master/README.md">文档</a>
         </p>
-        <img id="demo" alt="示例图片" width="100%">
+        <img id="demo" alt="示例图片" width="100%" hidden>
     </div>
     <script>
         fetch('/.netlify/functions/wallpaper')
             .then(res => res.json())
             .then(function (data) {
                 const { url } = data.images[0];
-                document.getElementById('demo').src = url;
+                const el = document.getElementById('demo');
+                el.src = url;
+                el.hidden = false;
             });
     </script>
 </body>
