@@ -22,11 +22,10 @@ exports.handler = function (event, context, callback) {
         callback(null, {
             statusCode: 200,
             headers: {
-                'content-type': 'application/json; charset=utf-8',
+                'Content-Type': 'application/json; charset=utf-8',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Headers': 'x-requested-with,content-type'
+                'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type'
             },
             body: json
         });
