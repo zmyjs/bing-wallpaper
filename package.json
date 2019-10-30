@@ -4,7 +4,7 @@
   "description": "Bing每日壁纸",
   "main": "index.js",
   "scripts": {
-    "start": "netlify"
+    "start": "netlify-lambda"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/kobezhu/bing-wallpaper#readme",
   "dependencies": {
-    "netlify-cli": "^2.20.1"
+    "netlify-lambda": "^1.6.3"
   }
 }

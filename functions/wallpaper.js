@@ -1,5 +1,23 @@
-exports.handler = function (event, context, callback) {
-    let result = { event, context };
+const https = require('https');
 
-    callback(null, { statusCode: 200, body: JSON.stringify(result) });
+const location = {
+    origin: 'https://cn.bing.com',
+    pathname: '/HPImageArchive.aspx',
+    search: '?format=js&idx=0&n=1&pid=hp',
+    get href() {
+        return this.origin + this.pathname + this.search;
+    }
+}
+
+exports.handler = function (event, context, callback) {
+    https.get(location.href, function (res) {
+        res.on('data', function (data) {
+            const json = data.toString();
+
+            callback(null, {
+                statusCode: 200,
+                body: json
+            });
+        });
+    });
 }
