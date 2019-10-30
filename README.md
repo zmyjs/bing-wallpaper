@@ -1,2 +1,3 @@
 # bing-wallpaper
-bing每日壁纸
+
+Bing每日壁纸
