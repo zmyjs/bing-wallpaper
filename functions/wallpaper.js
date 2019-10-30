@@ -24,7 +24,7 @@ exports.handler = function (event, context, callback) {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Credentials': 'true',
                 'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type'
             },
             body: json
