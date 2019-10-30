@@ -14,11 +14,15 @@ exports.handler = function (event, context, callback) {
         res.on('data', function (data) {
             const json = data.toString();
 
-            callback(null, {
-                statusCode: 200,
-                headers: { 'content-type': 'application/json; charset=utf-8' },
-                body: json
-            });
+            send(json);
         });
     });
+
+    function send(json) {
+        callback(null, {
+            statusCode: 200,
+            headers: { 'content-type': 'application/json; charset=utf-8' },
+            body: json
+        });
+    }
 }
