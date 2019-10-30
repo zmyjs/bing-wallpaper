@@ -2,28 +2,17 @@ const https = require('https');
 
 const api = {
     origin: 'https://www.bing.com',
-    pathname: '/HPImageArchive.aspx'
-};
-
-function absolute(img) {
-    const reg = /^\/\w+/;
-    for (const key in img) {
-        const value = img[key];
-        if (reg.test(value)) {
-            img[key] = api.origin + value;
+    pathname: '/HPImageArchive.aspx',
+    getURL(search) {
+        let url = `${this.origin}${this.pathname}?`;
+        for (const key in search) {
+            url += `${key}=${search[key]}&`;
         }
-    }
-}
+        url += `nc=${Date.now()}`;
 
-function getURL(search) {
-    let url = `${api.origin}${api.pathname}?`;
-    for (const key in search) {
-        url += `${key}=${search[key]}&`;
+        return url;
     }
-    url += 'format=js';
-
-    return url;
-}
+};
 
 exports.handler = function (event, context, callback) {
     /**
@@ -33,10 +22,13 @@ exports.handler = function (event, context, callback) {
      * pid 可能跟大小有关；默认hp
      * nc 时间戳
      */
-    const search = { n: 1, nc: Date.now() };
+    const search = {
+        n: 1,
+        format: 'js'
+    };
     Object.assign(search, event.queryStringParameters);
 
-    https.get(getURL(search), function (res) {
+    https.get(api.getURL(search), function (res) {
         res.on('data', function (data) {
             const json = data.toString();
             const result = JSON.parse(json);
@@ -47,7 +39,15 @@ exports.handler = function (event, context, callback) {
     }).on('error', callback);
 
     function success(data, debug) {
-        data.images.forEach(absolute);
+        data.images.forEach(function (img) {
+            const reg = /^\/\w+/;
+            for (const key in img) {
+                const value = img[key];
+                if (reg.test(value)) {
+                    img[key] = api.origin + value;
+                }
+            }
+        });
 
         callback(null, {
             statusCode: 200,
