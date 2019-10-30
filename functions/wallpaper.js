@@ -21,7 +21,10 @@ exports.handler = function (event, context, callback) {
     function send(json) {
         callback(null, {
             statusCode: 200,
-            headers: { 'content-type': 'application/json; charset=utf-8' },
+            headers: {
+                'content-type': 'application/json; charset=utf-8',
+                'Access-Control-Allow-Origin': '*'
+            },
             body: json
         });
     }
