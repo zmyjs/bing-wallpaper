@@ -28,35 +28,44 @@ exports.handler = function (event, context, callback) {
     };
     Object.assign(search, event.queryStringParameters);
 
-    https.get(api.getURL(search), function (res) {
-        res.on('data', function (data) {
-            const json = data.toString();
-            const result = JSON.parse(json);
-            result.event = event;
-            success(result);
-        });
-    }).on('error', callback);
+    https.get(api.getURL(search), {
+        headers: event.headers
+    }, function (res) {
+        if (res.statusCode == 200) {
+            res.on('data', function (data) {
+                const json = data.toString(),
+                    result = JSON.parse(json);
 
-    function success(data) {
-        data.images.forEach(function (img) {
-            const reg = /^\/\w+/;
-            for (const key in img) {
-                const value = img[key];
-                if (reg.test(value)) {
-                    img[key] = api.origin + value;
-                }
-            }
-        });
+                result.images.forEach(function (img) {
+                    const reg = /^\/\w+/;
+                    for (const key in img) {
+                        const value = img[key];
+                        if (reg.test(value)) {
+                            img[key] = api.origin + value;
+                        }
+                    }
+                });
 
-        callback(null, {
-            statusCode: 200,
+                send(null, 200, result);
+            });
+        } else {
+            send(new Error(res.statusMessage), res.statusCode);
+        }
+    }).on('error', function (error) {
+        send(error, 500);
+    });
+
+
+    function send(error, statusCode, data) {
+        callback(error, {
+            statusCode,
+            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true',
                 'Access-Control-Allow-Headers': 'authorization'
-            },
-            body: JSON.stringify(data)
+            }
         });
     }
 }
