@@ -1,5 +1,13 @@
 const https = require('https');
 
+/**
+ * 接口原版参数：
+ * n 数量，必填
+ * idx 索引；默认0
+ * format 响应格式：js、xml；默认xml。
+ * pid 可能跟大小有关；默认hp
+ * nc 时间戳
+ */
 const api = {
     origin: 'https://www.bing.com',
     pathname: '/HPImageArchive.aspx',
@@ -15,24 +23,11 @@ const api = {
 };
 
 exports.handler = function (event, context, callback) {
-    /**
-     * n 数量，必填
-     * idx 索引；默认0
-     * format 响应格式：js、xml；默认xml。
-     * pid 可能跟大小有关；默认hp
-     * nc 时间戳
-     */
-    const search = {
-        n: 1,
-        format: 'js'
-    };
+    // 默认值
+    const search = { n: 1, format: 'js' };
     Object.assign(search, event.queryStringParameters);
 
-    https.get(api.getURL(search), {
-        headers: {
-            'Accept-Language': event.headers['Accept-Language']
-        }
-    }, function (res) {
+    https.get(api.getURL(search), function (res) {
         if (res.statusCode === 200) {
             res.on('data', function (data) {
                 const json = data.toString(),
@@ -56,7 +51,6 @@ exports.handler = function (event, context, callback) {
     }).on('error', function (error) {
         send(error, 500);
     });
-
 
     function send(error, statusCode, data) {
         callback(error, {
