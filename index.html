@@ -7,37 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bing每日壁纸</title>
     <link rel="shortcut icon" href="https://cn.bing.com/sa/simg/bing_p_rr_teal_min.ico" type="image/x-icon">
-    <style>
-        body {
-            margin: 2rem 5rem;
-        }
+</head>
 
-        #demo {
-            width: 50rem;
-            max-width: 100%;
-        }
-    </style>
+<body>
+    <div id="app" style="padding: 2rem 5rem;">
+        <h1>Bing每日壁纸</h1>
+        <h2>以支持跨域范围的方式使用Bing每日壁纸API。</h2>
+        <p>
+            <a href="/.netlify/functions/wallpaper">https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper</a>
+        </p>
+        <p>
+            <a href="https://github.com/kobezhu/bing-wallpaper/blob/master/README.md">文档</a>
+        </p>
+        <img id="demo" alt="示例图片" width="100%">
+    </div>
     <script>
         fetch('/.netlify/functions/wallpaper')
             .then(res => res.json())
             .then(function (data) {
                 const { url } = data.images[0];
-                demo.src = url;
+                document.getElementById('demo').src = url;
             });
     </script>
-</head>
-
-<body>
-    <h1>Bing每日壁纸</h1>
-    <h2>以支持跨域范围的方式使用Bing每日壁纸API。</h2>
-    <p>
-        <a href="/.netlify/functions/wallpaper">https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper</a>
-    </p>
-    <p>
-        <a href="https://github.com/kobezhu/bing-wallpaper/blob/master/README.md">文档</a>
-    </p>
-    <img id="demo" alt="示例图片"
-        src="https://cn.bing.com/th?id=OHR.CharlesNight_EN-US6584049116_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp">
 </body>
 
 </html>

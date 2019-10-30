@@ -1,20 +1,16 @@
 {
-  "name": "bing-wallpaper",
-  "version": "1.0.0",
-  "description": "Bing每日壁纸",
-  "main": "index.js",
-  "scripts": {
-    "start": "netlify-lambda"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kobezhu/bing-wallpaper.git"
-  },
-  "author": "ZMY",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kobezhu/bing-wallpaper/issues"
-  },
-  "homepage": "https://github.com/kobezhu/bing-wallpaper#readme",
-  "dependencies": {}
+	"name": "bing-wallpaper",
+	"version": "1.0.0",
+	"description": "Bing每日壁纸",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kobezhu/bing-wallpaper.git"
+	},
+	"author": "ZMY",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kobezhu/bing-wallpaper/issues"
+	},
+	"homepage": "https://github.com/kobezhu/bing-wallpaper#readme"
 }
