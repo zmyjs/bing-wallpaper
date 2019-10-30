@@ -23,7 +23,8 @@ exports.handler = function (event, context, callback) {
             statusCode: 200,
             headers: {
                 'content-type': 'application/json; charset=utf-8',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true
             },
             body: json
         });
