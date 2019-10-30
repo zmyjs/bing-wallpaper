@@ -4,7 +4,7 @@
   "description": "Bing每日壁纸",
   "main": "index.js",
   "scripts": {
-    "start": "netlify functions:invoke"
+    "start": "netlify"
   },
   "repository": {
     "type": "git",
