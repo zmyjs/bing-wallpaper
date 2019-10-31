@@ -2,4 +2,4 @@
   functions = "functions"
 
 [context.production]
-  environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs12.x" }
+  environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
