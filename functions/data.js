@@ -68,5 +68,6 @@ function getData(params) {
 }
 
 exports.handler = async function (event) {
+    console.log(...arguments);
     return getData(event.queryStringParameters);
 }
