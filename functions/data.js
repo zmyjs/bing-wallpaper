@@ -25,15 +25,14 @@ function getData(params, options) {
         url.searchParams.set(key, params[key]);
     }
 
-    // Object.assign(options, url);
+    Object.assign(url, options);
 
     console.log(url);
 
     return new Promise(function (resolve, reject) {
         https.get(url, function (res) {
             const { statusCode } = res;
-            const headers = res.getHeaders();
-            Object.assign(headers, acaHeaders);
+            const headers = Object.assign({}, res.headers, acaHeaders);
 
             if (res.statusCode === 200) {
                 res.on('data', function (data) {
