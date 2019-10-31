@@ -25,19 +25,19 @@ function getData(params, options) {
         url.searchParams.set(key, params[key]);
     }
 
-    Object.assign(url, options);
+    Object.assign(options, url);
 
-    console.log(url);
+    console.log(options);
 
     return new Promise(function (resolve, reject) {
-        https.get(url, function (res) {
+        https.get(options, function (res) {
             const { statusCode } = res;
             const headers = Object.assign({}, res.headers, acaHeaders);
 
             if (res.statusCode === 200) {
                 res.on('data', function (data) {
                     const json = data.toString();
-                    const body = json.replace(/(\:\s*")(\/\w+)/g, `$1${url.origin}$2`);
+                    const body = json.replace(/"\/(\w)/g, `"${url.origin}/$1`);
                     resolve({ statusCode, headers, body });
                 });
             } else {
