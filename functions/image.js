@@ -1,4 +1,4 @@
-const acaHeaders = require('../utils/acaHeaders');
+const acaHeaders = require('./utils/acaHeaders');
 
 exports.handler = function (event, context, callback) {
     callback(null, {

@@ -1,5 +1,5 @@
-const bing = require('../utils/bing');
-const acaHeaders = require('../utils/acaHeaders');
+const bing = require('./utils/bing');
+const acaHeaders = require('./utils/acaHeaders');
 
 exports.handler = function (event, context, callback) {
     bing(event.queryStringParameters).then(function (res) {
