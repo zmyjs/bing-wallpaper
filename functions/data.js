@@ -38,7 +38,7 @@ function getData(params, options) {
             if (res.statusCode === 200) {
                 res.on('data', function (data) {
                     const json = data.toString();
-                    const body = json.replace(/(\:\s*")\/(\w+)/g, `$1${url.origin}$2`);
+                    const body = json.replace(/(\:\s*")(\/\w+)/g, `$1${url.origin}$2`);
                     resolve({ statusCode, headers, body });
                 });
             } else {
@@ -48,7 +48,7 @@ function getData(params, options) {
         }).on('error', function (error) {
             reject({
                 statusCode: 500,
-                body: error.toString()
+                body: JSON.stringify(error)
             })
         });
     });
@@ -56,7 +56,9 @@ function getData(params, options) {
 
 exports.handler = async function (event) {
     return getData(
-        Object.assign(event.body, event.queryStringParameters),
-        { headers: event.headers }
+        event.queryStringParameters,
+        {
+            headers: { 'accept-language': event.headers['accept-language'] }
+        }
     );
 }
