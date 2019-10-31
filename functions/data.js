@@ -40,7 +40,7 @@ function getData(params) {
                         for (const key in img) {
                             const value = img[key];
                             if (reg.test(value))
-                                img[key] = api.origin + value;
+                                img[key] = url.origin + value;
                         }
                     });
 
@@ -67,7 +67,7 @@ function getData(params) {
     });
 }
 
-exports.handler = async function (event) {
-    console.log(...arguments);
+exports.handler = async function (event, context) {
+    console.log(event, context);
     return getData(event.queryStringParameters);
 }
