@@ -4,7 +4,7 @@
 
 ## URL
 
-https://bing-wallpaper.netlify.com/.netlify/functions/wallpaper
+https://bing-wallpaper.netlify.com/.netlify/functions/data
 
 ## 方法
 
