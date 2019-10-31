@@ -17,7 +17,7 @@ const acaHeaders = {
  */
 const bingImageAPI = 'https://www.bing.com/HPImageArchive.aspx?format=js&n=1';
 
-function getData(params, options) {
+function getData(params) {
     const url = new URL(bingImageAPI);
 
     url.searchParams.set('nc', Date.now());
@@ -25,12 +25,10 @@ function getData(params, options) {
         url.searchParams.set(key, params[key]);
     }
 
-    Object.assign(options, url);
-
-    console.log(options);
+    console.log(url);
 
     return new Promise(function (resolve, reject) {
-        https.get(options, function (res) {
+        https.get(url, function (res) {
             const { statusCode } = res;
             const headers = Object.assign({}, res.headers, acaHeaders);
 
@@ -54,10 +52,5 @@ function getData(params, options) {
 }
 
 exports.handler = async function (event) {
-    return getData(
-        event.queryStringParameters,
-        {
-            headers: { 'accept-language': event.headers['accept-language'] }
-        }
-    );
+    return getData(event.queryStringParameters);
 }
