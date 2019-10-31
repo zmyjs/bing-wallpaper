@@ -25,28 +25,44 @@ function getData(params) {
         url.searchParams.set(key, params[key]);
     }
 
-    console.log(url);
-
     return new Promise(function (resolve, reject) {
         https.get(url, function (res) {
             const { statusCode } = res;
             const headers = Object.assign({}, res.headers, acaHeaders);
 
-            if (res.statusCode === 200) {
+            if (statusCode === 200) {
                 res.on('data', function (data) {
-                    const json = data.toString();
-                    const body = json.replace(/"\/(\w)/g, `"${url.origin}/$1`);
-                    resolve({ statusCode, headers, body });
+                    const json = data.toString(),
+                        result = JSON.parse(json);
+                    const reg = /^\/\w+/;
+
+                    result.images.forEach(function (img) {
+                        for (const key in img) {
+                            const value = img[key];
+                            if (reg.test(value))
+                                img[key] = api.origin + value;
+                        }
+                    });
+
+                    resolve({
+                        statusCode, headers,
+                        body: JSON.stringify(result)
+                    });
+                    console.info(url);
                 });
             } else {
-                const body = res.statusMessage;
-                reject({ statusCode, headers, body });
+                reject({
+                    statusCode, headers,
+                    body: res.statusMessage
+                });
+                console.warn('warn');
             }
         }).on('error', function (error) {
             reject({
                 statusCode: 500,
                 body: JSON.stringify(error)
-            })
+            });
+            console.error('error');
         });
     });
 }
