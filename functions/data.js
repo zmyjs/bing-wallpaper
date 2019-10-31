@@ -22,15 +22,15 @@ function getData(params, options) {
 
     url.searchParams.set('nc', Date.now());
     for (const key in params) {
-        url.searchParams.set(key, params[value]);
+        url.searchParams.set(key, params[key]);
     }
 
-    Object.assign(options, url);
+    // Object.assign(options, url);
 
-    console.log(options);
+    console.log(url);
 
     return new Promise(function (resolve, reject) {
-        https.get(options, function (res) {
+        https.get(url, function (res) {
             const { statusCode } = res;
             const headers = res.getHeaders();
             Object.assign(headers, acaHeaders);
