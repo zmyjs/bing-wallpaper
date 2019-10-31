@@ -10,7 +10,7 @@ const https = require('https');
  */
 const bingImageAPI = 'https://www.bing.com/HPImageArchive.aspx?format=js&n=1';
 
-function getData(params) {
+function getData(params, options) {
     const url = new URL(bingImageAPI);
 
     url.searchParams.set('nc', Date.now());
@@ -18,7 +18,9 @@ function getData(params) {
         url.searchParams.set(key, params[value]);
     }
 
-    console.info(url);
+    Object.assign(url, options);
+
+    console.log(url);
 
     return new Promise(function (resolve, reject) {
         https.get(url, function (res) {
@@ -47,7 +49,9 @@ function getData(params) {
 }
 
 exports.handler = function (event, context, callback) {
-    getData(event.queryStringParameters).then(function (res) {
+    console.log(process.version);
+
+    getData(event.queryStringParameters, { headers: event.headers }).then(function (res) {
         send(null, 200, res);
     }, function (error) {
         send(error, error.statusCode || 500, error);
