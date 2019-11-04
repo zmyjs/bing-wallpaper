@@ -1,3 +1,5 @@
+import { request } from './index';
+
 export function bing(number = 1, index = 0) {
     const url = new URL('/bing', window.location);
     const params = {
@@ -12,5 +14,5 @@ export function bing(number = 1, index = 0) {
         url.searchParams.append(key, params[key]);
     }
 
-    return fetch(url).then(res => res.json());
+    return request(url);
 }

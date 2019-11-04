@@ -14,3 +14,7 @@
 [[redirects]]
   from = "/archive"
   to = "https://bing-wallpaper.netlify.com/.netlify/functions/archive"
+
+  [[redirects]]
+  from = "/simple"
+  to = "https://bing-wallpaper.netlify.com/.netlify/functions/simple"

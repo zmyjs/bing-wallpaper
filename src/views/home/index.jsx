@@ -27,7 +27,12 @@ class Home extends React.Component {
                 <main>
                     <h2>以支持跨域的方式使用Bing每日壁纸API。</h2>
                     <p>
-                        <a href="/image">https://bing-wallpaper.netlify.com/.netlify/functions/image</a>
+                        完整版：
+                        <a href="/archive">https://bing-wallpaper.netlify.com/.netlify/functions/archive</a>
+                    </p>
+                    <p>
+                        精简版：
+                        <a href="/simple">https://bing-wallpaper.netlify.com/.netlify/functions/simple</a>
                     </p>
                     <p>
                         <a href="https://github.com/kobezhu/bing-wallpaper#readme">文档</a>
