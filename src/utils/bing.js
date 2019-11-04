@@ -31,11 +31,17 @@ module.exports = function (params) {
             };
 
             if (res.statusCode === 200) {
-                res.on('data', function (data) {
-                    const json = data.toString();
+                res.on('data', function (stream) {
+                    const text = stream.toString();
 
-                    result.data = JSON.parse(json);
-                    result.data.base = url.origin;
+                    if (url.searchParams.get('format') === 'js') {
+                        const data = JSON.parse(text);
+                        data.base = url.origin;
+                        result.data = JSON.stringify(data);
+                    } else {
+                        result.data = text;
+                    }
+
                     resolve(result);
                 });
             } else {

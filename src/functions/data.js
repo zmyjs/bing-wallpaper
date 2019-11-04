@@ -10,7 +10,7 @@ exports.handler = function (event, context, callback) {
     bing(event.queryStringParameters).then(function (res) {
         callback(null, {
             statusCode: 200,
-            body: JSON.stringify(res.data),
+            body: res.data,
             headers: {
                 'content-type': res.headers['content-type'],
                 ...acaHeaders
