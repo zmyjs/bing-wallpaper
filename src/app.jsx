@@ -1,9 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Loading from './components/Loading';
+import './styles/index.scss';
+
+function lazy(path) {
+    return React.lazy(() => import(`./views/${path}`));
+}
 
 export default (
-    <div className="app">
-        <a href="https://bing-wallpaper.netlify.com/.netlify/functions/data">
-            https://bing-wallpaper.netlify.com/.netlify/functions/data
-        </a>
-    </div>
+    <React.Suspense fallback={<Loading />}>
+        <Router>
+            <Switch>
+                <Route path="/" component={lazy('Home')} exact />
+                <Route path="/doc" component={lazy('Documentation')} />
+            </Switch>
+        </Router>
+    </React.Suspense>
 );

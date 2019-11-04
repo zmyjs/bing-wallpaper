@@ -19,8 +19,8 @@ exports.handler = function (event, context, callback) {
     }, function (error) {
         if (error.data) {
             callback(null, {
-                statusCode: res.statusCode,
-                body: res.data,
+                statusCode: error.statusCode,
+                body: error.data,
                 headers: acaHeaders
             });
         } else {
