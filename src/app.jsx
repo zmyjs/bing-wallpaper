@@ -12,7 +12,6 @@ export default (
         <Router>
             <Switch>
                 <Route path="/" component={lazy('Home')} exact />
-                <Route path="/doc" component={lazy('Documentation')} />
             </Switch>
         </Router>
     </React.Suspense>
