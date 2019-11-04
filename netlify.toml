@@ -12,3 +12,4 @@
 [[redirects]]
   from = "/image"
   to = "https://bing-wallpaper.netlify.com/.netlify/functions/image"
+  status = 200
