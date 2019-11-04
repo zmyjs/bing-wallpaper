@@ -1,5 +1,10 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    color: #333;
 }
 
 .view-home {
@@ -10,4 +15,11 @@ body {
     background-size: cover;
     background-position: center center;
     padding: 0 10rem;
+
+    &.bg-dark {
+        color: white;
+        a {
+            color: white;
+        }
+    }
 }

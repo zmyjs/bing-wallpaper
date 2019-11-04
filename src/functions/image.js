@@ -15,8 +15,7 @@ exports.handler = function (event, context, callback) {
             body: res.data,
             headers: {
                 'content-type': res.headers['content-type'],
-                ...acaHeaders,
-                version: process.version
+                ...acaHeaders
             }
         });
     }, function (error) {

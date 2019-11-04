@@ -1,4 +1,4 @@
-export function bing(number, index = 0) {
+export function bing(number = 1, index = 0) {
     const url = new URL('/bing', window.location);
     const params = {
         n: number,

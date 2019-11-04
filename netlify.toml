@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
   publish = "build"
-  command = "npm run build:lambda"
+  command = "npm run build"
   environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
 
 [[redirects]]
@@ -12,4 +12,3 @@
 [[redirects]]
   from = "/image"
   to = "https://bing-wallpaper.netlify.com/.netlify/functions/image"
-  status = 200
