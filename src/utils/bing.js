@@ -1,14 +1,14 @@
 const https = require('https');
 const { URL } = require('url');
 
-
-
 /**
  * 接口原版参数：
  * n 数量，必填
  * idx 索引；默认0
- * format 响应格式：js、xml；默认xml。
- * pid 可能跟大小有关；默认hp
+ * format 响应格式：js、xml；默认xml
+ * pid 大小；默认hp
+ * mkt 语言，中文zh-CN；默认英文en-US
+ * ensearch 是否显示详情：0、1；默认0
  * nc 时间戳
  */
 const bingImageAPI = 'https://www.bing.com/HPImageArchive.aspx?format=js&n=1';

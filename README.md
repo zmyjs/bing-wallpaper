@@ -12,46 +12,37 @@ GET
 
 ## 参数
 
-### n [Number]
-
-图片数量；最小为`1`，最大为`8`；默认为`1`。
-
-### idx [Number]
-
-索引；`0`为当天，大于0为历史图片，最大为`16`；默认为`0`。
-
-### format [String]
-
-响应格式；可选：`js`、`xml`、`rss`；默认`js`。
-
-### mkt [String]
-
-区域、语言；例如：中文`zh-CN`，默认`en-US`。
-
-### ensearch [Number]
-
-详细信息模式；`0`关闭，`1`开启；默认`0`。
+| 属性 | 类型 | 说明 | 默认值 |
+| - | - | - | - |
+| n | Number | 图片数量；最小为`1`，最大为`8` | `1` |
+| idx | Number | `0`为当天，大于0为历史图片，最大为`16` | `0` |
+| format | String | 响应格式；可选：`js`、`xml`、`rss` | `js` |
+| mkt | String | 语言、区域，例如：`zh-CN` | `en-US` |
+| ensearch | Number | 详情模式，`0`关闭，`1`开启 | `0` |
 
 ## 响应
 
 最外层为对象，有以下属性：
 
-### base
+| 属性 | 类型 | 说明 |
+| - | - | - |
+| base | String | 图片相对地址的基准地址。这是唯一本项目新增的属性，其他属性为原版接口返回值。只当`format=js`时存在，其他情况自行添加`https://www.bing.com`。 |
+| images | Array | 图片列表，每个元素为**图片对象** |
+| tooltips | Object | 工具提示，自行探索。 |
 
-图片相对地址的基准地址。这是唯一本项目新增的属性，其他属性为原版接口返回值。
+### 图片对象
 
-### images [Array]
-
-图片列表。
-
-- url 图片相对地址
-- title 图片标题
+| 属性 | 类型 | 说明 |
+| - | - | - |
+| url | String | 图片相对地址 |
+| title | String | 图片标题 |
+| copyright | String | 版权信息 |
+| copyrightlink | String | 版权链接绝对地址 |
+| drk | Number | 图片是否为深色 |
+| quiz | String | 知识点相对地址 |
+| enddate | String | 图片日期 |
 
 其他自行探索。
-
-### tooltips [Object]
-
-工具提示，自行探索。
 
 ## 响应示例
 
