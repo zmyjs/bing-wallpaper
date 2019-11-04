@@ -5,6 +5,10 @@
   environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
 
 [[redirects]]
-  from = "/image"
+  from = "/bing"
   to = "https://www.bing.com/HPImageArchive.aspx"
   status = 200
+
+[[redirects]]
+  from = "/image"
+  to = "https://bing-wallpaper.netlify.com/.netlify/functions/image"

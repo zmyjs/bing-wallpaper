@@ -14,7 +14,7 @@ class Home extends React.Component {
         const style = {};
 
         if (image) {
-            style.backgroundImage = `url(https://www.bing.com/${image.url})`;
+            style.backgroundImage = `url(https://www.bing.com${image.url})`;
             style.color = image.drk === 1 ? 'white' : 'black';
         }
 
@@ -26,7 +26,7 @@ class Home extends React.Component {
                 </header>
                 <main>
                     <p>
-                        <a href="/.netlify/functions/data">https://bing-wallpaper.netlify.com/.netlify/functions/data</a>
+                        <a href="/.netlify/functions/image">https://bing-wallpaper.netlify.com/.netlify/functions/image</a>
                     </p>
                     <p>
                         <a href="https://github.com/kobezhu/bing-wallpaper#readme">文档</a>
@@ -42,7 +42,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         const self = this;
-        api.images(3).then(function (res) {
+        api.bing(3).then(function (res) {
             self.setState({ images: res.images });
         });
     }
