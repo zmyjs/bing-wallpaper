@@ -21,28 +21,25 @@ module.exports = function (params) {
         url.searchParams.set(key, params[key]);
     }
 
-    console.log(url);
-
     return new Promise(function (resolve, reject) {
         https.get(url, function (res) {
             const result = {
-                headers: res.headers,
-                statusCode: res.statusCode
+                statusCode: res.statusCode,
+                headers: {
+                    'content-type': res.headers['content-type'],
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true',
+                    'Access-Control-Allow-Headers': 'authorization'
+                },
+                url
             };
 
             if (res.statusCode === 200) {
                 res.on('data', function (stream) {
                     const text = stream.toString();
-
-                    if (url.searchParams.get('format') === 'js') {
-                        const data = JSON.parse(text);
-                        data.base = url.origin;
-                        result.data = JSON.stringify(data);
-                    } else {
-                        result.data = text;
-                    }
-
+                    result.data = text;
                     resolve(result);
+                    console.info('success', result);
                 });
             } else {
                 result.data = res.statusMessage;
