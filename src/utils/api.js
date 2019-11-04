@@ -1,5 +1,5 @@
 export function images(number, index = 0) {
-    const url = new URL('/image');
+    const url = new URL('/image', window.location);
     const params = {
         n: number,
         idx: index,
