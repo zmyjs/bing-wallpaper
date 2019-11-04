@@ -12,5 +12,13 @@
 	"bugs": {
 		"url": "https://github.com/kobezhu/bing-wallpaper/issues"
 	},
-	"homepage": "https://github.com/kobezhu/bing-wallpaper#readme"
+	"homepage": "https://github.com/kobezhu/bing-wallpaper#readme",
+	"devDependencies": {
+		"netlify-lambda": "^1.6.3"
+	},
+	"scripts": {
+		"lambda": "netlify-lambda",
+		"serve:lambda": "netlify-lambda serve src/functions",
+		"build:lambda": "netlify-lambda build src/functions"
+	}
 }
