@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
   publish = "build"
-  command = "npm run netlify"
+  command = "npm run build:lambda"
   environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
 
 [[redirects]]
