@@ -11,7 +11,6 @@
     "bugs": {
         "url": "https://github.com/kobezhu/bing-wallpaper/issues"
     },
-    "homepage": "https://github.com/kobezhu/bing-wallpaper#readme",
     "dependencies": {
         "netlify-lambda": "^1.6.3",
         "react": "^16.11.0",
@@ -32,6 +31,7 @@
     "eslintConfig": {
         "extends": "react-app"
     },
+    "homepage": ".",
     "browserslist": {
         "production": [
             ">0.2%",

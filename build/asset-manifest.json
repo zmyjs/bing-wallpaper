@@ -1,25 +1,25 @@
 {
   "files": {
-    "static/js/0.c8aa4e37.chunk.js": "/kobezhu/bing-wallpaper/static/js/0.c8aa4e37.chunk.js",
-    "static/js/0.c8aa4e37.chunk.js.map": "/kobezhu/bing-wallpaper/static/js/0.c8aa4e37.chunk.js.map",
-    "static/js/1.bd289662.chunk.js": "/kobezhu/bing-wallpaper/static/js/1.bd289662.chunk.js",
-    "static/js/1.bd289662.chunk.js.map": "/kobezhu/bing-wallpaper/static/js/1.bd289662.chunk.js.map",
-    "main.css": "/kobezhu/bing-wallpaper/static/css/main.b262c333.chunk.css",
-    "main.js": "/kobezhu/bing-wallpaper/static/js/main.f69b2e2c.chunk.js",
-    "main.js.map": "/kobezhu/bing-wallpaper/static/js/main.f69b2e2c.chunk.js.map",
-    "runtime-main.js": "/kobezhu/bing-wallpaper/static/js/runtime-main.b9cd4e26.js",
-    "runtime-main.js.map": "/kobezhu/bing-wallpaper/static/js/runtime-main.b9cd4e26.js.map",
-    "static/js/4.66834bf4.chunk.js": "/kobezhu/bing-wallpaper/static/js/4.66834bf4.chunk.js",
-    "static/js/4.66834bf4.chunk.js.map": "/kobezhu/bing-wallpaper/static/js/4.66834bf4.chunk.js.map",
-    "index.html": "/kobezhu/bing-wallpaper/index.html",
-    "precache-manifest.ee7217c8105ddc653d0c239e5a790105.js": "/kobezhu/bing-wallpaper/precache-manifest.ee7217c8105ddc653d0c239e5a790105.js",
-    "service-worker.js": "/kobezhu/bing-wallpaper/service-worker.js",
-    "static/css/main.b262c333.chunk.css.map": "/kobezhu/bing-wallpaper/static/css/main.b262c333.chunk.css.map"
+    "static/js/0.c8aa4e37.chunk.js": "./static/js/0.c8aa4e37.chunk.js",
+    "static/js/0.c8aa4e37.chunk.js.map": "./static/js/0.c8aa4e37.chunk.js.map",
+    "static/js/1.bd289662.chunk.js": "./static/js/1.bd289662.chunk.js",
+    "static/js/1.bd289662.chunk.js.map": "./static/js/1.bd289662.chunk.js.map",
+    "main.css": "./static/css/main.b262c333.chunk.css",
+    "main.js": "./static/js/main.a4d316ab.chunk.js",
+    "main.js.map": "./static/js/main.a4d316ab.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.5752b9eb.js",
+    "runtime-main.js.map": "./static/js/runtime-main.5752b9eb.js.map",
+    "static/js/4.66834bf4.chunk.js": "./static/js/4.66834bf4.chunk.js",
+    "static/js/4.66834bf4.chunk.js.map": "./static/js/4.66834bf4.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.34a081f3f4289a0a952c15f0d9f960c1.js": "./precache-manifest.34a081f3f4289a0a952c15f0d9f960c1.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.b262c333.chunk.css.map": "./static/css/main.b262c333.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.b9cd4e26.js",
+    "static/js/runtime-main.5752b9eb.js",
     "static/js/4.66834bf4.chunk.js",
     "static/css/main.b262c333.chunk.css",
-    "static/js/main.f69b2e2c.chunk.js"
+    "static/js/main.a4d316ab.chunk.js"
   ]
 }
