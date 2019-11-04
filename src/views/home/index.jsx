@@ -14,7 +14,7 @@ class Home extends React.Component {
         const style = {};
 
         if (image) {
-            style.backgroundImage = `url(${this.baseURL}${image.url})`;
+            style.backgroundImage = `url(https://www.bing.com/${image.url})`;
             style.color = image.drk === 1 ? 'white' : 'black';
         }
 
@@ -43,7 +43,6 @@ class Home extends React.Component {
     componentDidMount() {
         const self = this;
         api.images(3).then(function (res) {
-            self.baseURL = res.base;
             self.setState({ images: res.images });
         });
     }
