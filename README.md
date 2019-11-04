@@ -22,17 +22,29 @@ GET
 
 ### format [String]
 
-响应格式；可选：`js`、`xml`；默认`js`。
+响应格式；可选：`js`、`xml`、`rss`；默认`js`。
+
+### mkt [String]
+
+区域、语言；例如：中文`zh-CN`，默认`en-US`。
+
+### ensearch [Number]
+
+详细信息模式；`0`关闭，`1`开启；默认`0`。
 
 ## 响应
 
 最外层为对象，有以下属性：
 
+### base
+
+图片相对地址的基准地址。这是唯一本项目新增的属性，其他属性为原版接口返回值。
+
 ### images [Array]
 
 图片列表。
 
-- url 图片绝对地址（原版接口为相对地址）
+- url 图片相对地址
 - title 图片标题
 
 其他自行探索。
@@ -47,17 +59,17 @@ GET
 {
     "images": [
         {
-            "startdate": "20191030",
-            "fullstartdate": "201910300700",
-            "enddate": "20191031",
-            "url": "https://cn.bing.com/th?id=OHR.CharlesNight_EN-US6584049116_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp",
-            "urlbase": "https://cn.bing.com/th?id=OHR.CharlesNight_EN-US6584049116",
-            "copyright": "Charles Bridge over the Vltava River in Prague, Czech Republic (© Martin Moxter/Offset)",
-            "copyrightlink": "https://www.bing.com/search?q=charles+bridge+prague&form=hpcapt&filters=HpDate%3a%2220191030_0700%22",
-            "title": "Cross this bridge if you dare",
-            "quiz": "https://cn.bing.com/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20191030_CharlesNight%22&FORM=HPQUIZ",
-            "wp": true,
-            "hsh": "cd98891997358fbe31a8ffcd33a8fdae",
+            "startdate": "20191103",
+            "fullstartdate": "201911030800",
+            "enddate": "20191104",
+            "url": "/th?id=OHR.AbseilersBigBen_EN-CN8254489814_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp",
+            "urlbase": "/th?id=OHR.AbseilersBigBen_EN-CN8254489814",
+            "copyright": "Workers cleaning the clock face of Big Ben in London, England, for the end of Daylight Saving Time (© Reuters)",
+            "copyrightlink": "https://www.bing.com/search?q=daylight+saving+time&form=hpcapt&filters=HpDate%3a%2220191103_0800%22",
+            "title": "It's time to fall back",
+            "quiz": "/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20191103_AbseilersBigBen%22&FORM=HPQUIZ",
+            "wp": false,
+            "hsh": "d4f292182fe35f882b047c3e350ad577",
             "drk": 1,
             "top": 1,
             "bot": 1,
@@ -70,10 +82,7 @@ GET
         "next": "Next image",
         "walle": "This image is not available to download as wallpaper.",
         "walls": "Download this image. Use of this image is restricted to wallpaper only."
-    }
+    },
+    "base": "https://www.bing.com"
 }
 ```
-
-## 已知问题
-
-目前返回的信息都是英文的。

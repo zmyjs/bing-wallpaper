@@ -1,11 +1,7 @@
 const https = require('https');
 const { URL } = require('url');
 
-const acaHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Headers': 'authorization'
-};
+
 
 /**
  * 接口原版参数：
@@ -17,7 +13,7 @@ const acaHeaders = {
  */
 const bingImageAPI = 'https://www.bing.com/HPImageArchive.aspx?format=js&n=1';
 
-module.exports = function (params, options) {
+module.exports = function (params) {
     const url = new URL(bingImageAPI);
 
     url.searchParams.set('nc', Date.now());
@@ -25,39 +21,30 @@ module.exports = function (params, options) {
         url.searchParams.set(key, params[key]);
     }
 
+    console.log(url);
+
     return new Promise(function (resolve, reject) {
         https.get(url, function (res) {
-            const headers = Object.assign({
-                'content-type': res.headers['content-type']
-            }, acaHeaders);
+            const result = {
+                headers: res.headers,
+                statusCode: res.statusCode
+            };
 
             if (res.statusCode === 200) {
                 res.on('data', function (data) {
-                    const json = data.toString(),
-                        result = JSON.parse(json);
+                    const json = data.toString();
 
-                    result.base = url.origin;
-
-                    resolve({
-                        statusCode: 200,
-                        headers,
-                        body: JSON.stringify(result)
-                    });
-                    console.info(url);
+                    result.data = JSON.parse(json);
+                    result.data.base = url.origin;
+                    resolve(result);
                 });
             } else {
-                reject({
-                    statusCode: res.statusCode,
-                    headers,
-                    body: res.statusMessage
-                });
-                console.warn('warn', res.statusCode, res.statusMessage);
+                result.data = res.statusMessage;
+                reject(result);
+                console.warn('warn', result);
             }
         }).on('error', function (error) {
-            reject({
-                statusCode: 500,
-                body: JSON.stringify(error)
-            });
+            reject(error);
             console.error('error', error);
         });
     });
