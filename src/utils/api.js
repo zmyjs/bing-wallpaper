@@ -1,7 +1,7 @@
 const base = 'https://bing-wallpaper.netlify.com';
 
 export function images(number, index = 0) {
-    const url = new URL('/.netlify/functions/data', base);
+    const url = new URL('/image', base);
 
     url.searchParams.append('n', number);
     url.searchParams.append('idx', index);

@@ -4,5 +4,6 @@
   environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
 
 [[redirects]]
-  from = "/data"
+  from = "/image"
   to = "https://www.bing.com/HPImageArchive.aspx"
+  status = 200
