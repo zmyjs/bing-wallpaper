@@ -7,3 +7,4 @@
   from = "/image"
   to = "https://www.bing.com/HPImageArchive.aspx"
   status = 200
+  headers = { author = "zmy" }
