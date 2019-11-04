@@ -1,5 +1,5 @@
 [build]
   functions = "functions"
-
-[context.production]
+  command = "npm run build:lambda & npm run build"
+  base = "build"
   environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }

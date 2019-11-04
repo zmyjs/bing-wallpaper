@@ -7,6 +7,8 @@ const acaHeaders = {
 };
 
 exports.handler = function (event, context, callback) {
+    console.log(process.version);
+
     bing(event.queryStringParameters).then(function (res) {
         callback(null, {
             statusCode: 200,
