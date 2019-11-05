@@ -3,9 +3,6 @@
   publish = "build"
   command = "npm run netlify"
 
-[context.production]
-  environment = { AWS_LAMBDA_JS_RUNTIME = "nodejs10.x" }
-
 [[redirects]]
   from = "/bing"
   to = "https://www.bing.com/HPImageArchive.aspx"
