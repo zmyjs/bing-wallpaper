@@ -41,7 +41,8 @@ class Home extends React.Component {
                 </main>
                 <footer className="masking">
                     <p>
-                        网站托管自<a href="https://www.netlify.com/">Netlify</a>，接口所有数据来自<a href={bing}>Microsoft Bing</a>，本站只增加跨域支持。
+                        网站托管自<a href="https://www.netlify.com/">Netlify</a>。
+                        接口所有数据来自<a href={bing}>Microsoft Bing</a>，本站只增加跨域支持。
                     </p>
                     <p className="logo">
                         <img src="https://cn.bing.com/sa/simg/bing_p_rr_teal_min.ico" alt="Bing-logo" />
