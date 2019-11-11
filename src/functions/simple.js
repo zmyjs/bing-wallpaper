@@ -9,7 +9,7 @@ exports.handler = function (event, context, callback) {
 
         data = data.images.map(function (image) {
             return {
-                title: image.title,
+                title: image.title || image.copyright,
                 href: `${origin}${image.url}`,
                 date: image.enddate,
                 color: image.drk === 1 ? 'dark' : 'light'
