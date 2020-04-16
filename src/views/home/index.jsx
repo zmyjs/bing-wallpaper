@@ -1,5 +1,5 @@
 import React from 'react';
-import * as api from '../../utils/api';
+import { wallpaper } from '../../utils/api';
 
 const fnBase = 'https://bing-wallpaper.netlify.com/.netlify/functions',
     bing = 'https://www.bing.com';
@@ -56,7 +56,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         const self = this;
-        api.bing().then(function (res) {
+        wallpaper().then(function (res) {
             self.setState({ images: res.images });
         });
     }

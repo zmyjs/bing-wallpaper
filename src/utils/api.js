@@ -1,6 +1,4 @@
-import { request } from './index';
-
-export function bing(number = 1, index = 0) {
+export function wallpaper(number = 1, index = 0) {
     const url = new URL('/bing', window.location);
     const params = {
         n: number,
@@ -8,11 +6,11 @@ export function bing(number = 1, index = 0) {
         mkt: 'zh-CN',
         nc: Date.now(),
         format: 'js'
-    }
+    };
 
     for (const key in params) {
         url.searchParams.append(key, params[key]);
     }
 
-    return request(url);
+    return fetch(url).then(res => res.json());
 }
